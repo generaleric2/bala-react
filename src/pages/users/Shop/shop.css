@@ -1,0 +1,38 @@
+.shopTitle{
+    margin-top: 100px;
+    text-align: center;
+    margin-left: 450px;
+}
+
+
+.products{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    place-items: center;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.card-title{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-text{
+    text-decoration: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
