@@ -1,24 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { ShopContextProvider } from './pages/users/Shop/shop-context';
+import { Provider } from 'react-redux';
+import { store } from './pages/users/store/store';
 import { Nav } from './components/Nav';
 import { Cart } from './pages/users/Cart/cart';
 import { Shop } from './pages/users/Shop/shop';
-import { ShopContextProvider } from './pages/users/Shop/shop-context';
+// import { Orders } from './pages/admin/Orders/orders'
 
 function App() {
   return (
-    <ShopContextProvider>
+    <Provider store={store}>
       <Router>
         <Nav />
         <Routes>
           <Route path="/" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
+          {/* <Route path="/orders" element={<Orders />} /> */}
         </Routes>
       </Router>
-   </ShopContextProvider>
+    </Provider>
   );
 }
 
 export default App;
-

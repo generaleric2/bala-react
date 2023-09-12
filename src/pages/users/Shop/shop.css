@@ -1,38 +1,67 @@
 .shopTitle{
-    margin-top: 100px;
+    margin-top: 20px;
     text-align: center;
-    margin-left: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
 }
+.shop {
+    margin: 0 auto;
+    max-width: 5000px;
+    padding: 20px;
+  }
 
 
-.products{
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+
+  .products {
     width: 100%;
-    height: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
-    place-items: center;
-    margin-left: 200px;
-    margin-top: 50px;
-}
-
-.card-title{
-    font-size: 20px;
-    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create a flexible grid with 3 columns */
+    grid-gap: 20px; /* Add some gap between products */
+    margin-top: 100px;
+    margin-bottom: 50px;
     align-items: center;
     justify-content: center;
-}
+    margin-left: 30%;
+  }
 
-.card-text{
-    text-decoration: solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 
 button{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 50px;
+}
+
+
+  @media (max-width: 768px) {
+    .shop {
+      max-width: 900px;
+    }
+
+    .product {
+        grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+        max-width: 400px;
+        margin: 0 10px;
+      }
+  
+  
+  }
+
+.product-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

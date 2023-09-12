@@ -1,46 +1,59 @@
-import React from "react";
-import axios from "axios";
-import {useEffect, useState, useContext} from 'react';
-// import { ShopContext } from '../Shop/shop-context'
-import './shop.css'
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../reducers/cartSlice';
+import axios from 'axios';
+import './shop.css';
 
+export const Shop = () => {
+  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
 
-export const Shop = ()=>{
-const [data, setData]= useState([]);
-// const{addToCart} =useContext(ShopContext);
-
-const fetchData = async ()=>{
-    try{
-        const response = await axios.get('http://localhost:3007/shop');
-        console.log(response.data);
-        setData(response.data);
-    } catch(error){
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3007/shop');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleAddToCart = (product) => {
+    const itemToAdd = {
+      productId: product._id,
+      quantity: 1,
+      price: product.price,
+      productimage: product.productimage,
+      productname: product.productname,
+    };
+
+    dispatch(addToCart(itemToAdd));
+  };
+
+  return (
+    <div className="shop">
+      <div className="shopTitle">
+        <h1>Your Home Of Premium Sneakers</h1>
+      </div>
+      <div className="products">
+        {data.map((product) => (
+          <div key={product._id} className="product">
+            <img src={`http://localhost:3007/${product.productimage}`} alt="product" />
+              <h5 className='product-name'>{product.productname}</h5>
+              <p className="card-text">UGX{product.price}</p>
+            <button className="addToCart" onClick={() => handleAddToCart(product)}>
+              Add to Cart
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-useEffect(()=>{
-    fetchData();
-}, []);
 
-    return(
-        <div className="shop">
-            <div className="shopTitle">
-                <h1>Your Home Of Premium Sneakers</h1>
-            </div>
-            <div className="products">
-            {data.map((product) => (
-             <div key={product._id} className="card">
-                <img src={`http://localhost:3007/${product.productimage}`} alt="product image" />
-            <div className="card-body">
-                <h5 className="card-title">{product.productname}</h5>
-            <p className="card-text">UGX{product.price}</p>
-            </div>
-            <button className="addToCart" onClick={() => addToCart(id)}> Add to Cart</button>
-             </div>
-    ))}
-                    
-            </div>
-            
-        </div>
-    );
-}
+
+
