@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../reducers/cartSlice';
+
 import axios from 'axios';
 import './shop.css';
 
@@ -10,7 +11,7 @@ export const Shop = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3007/shop');
+      const response = await axios.get('https://bala-canvas.onrender.com//shop');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -33,6 +34,7 @@ export const Shop = () => {
     dispatch(addToCart(itemToAdd));
   };
 
+
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -41,7 +43,7 @@ export const Shop = () => {
       <div className="products">
         {data.map((product) => (
           <div key={product._id} className="product">
-            <img src={`http://localhost:3007/${product.productimage}`} alt="product" />
+            <img src={`https://bala-canvas.onrender.com//${product.productimage}`} alt="product" />
               <h5 className='product-name'>{product.productname}</h5>
               <p className="card-text">UGX{product.price}</p>
             <button className="addToCart" onClick={() => handleAddToCart(product)}>

@@ -5,7 +5,6 @@ import { store } from './pages/users/store/store';
 import { Nav } from './components/Nav';
 import { Cart } from './pages/users/Cart/cart';
 import { Shop } from './pages/users/Shop/shop';
-// import { Orders } from './pages/admin/Orders/orders'
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
-          {/* <Route path="/orders" element={<Orders />} /> */}
         </Routes>
       </Router>
     </Provider>
