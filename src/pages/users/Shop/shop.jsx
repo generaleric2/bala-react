@@ -11,7 +11,7 @@ export const Shop = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://bala-canvas.onrender.com//shop');
+      const response = await axios.get('https://bala-canvas.onrender.com/shop');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
