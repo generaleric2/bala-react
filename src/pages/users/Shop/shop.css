@@ -71,11 +71,17 @@ button{
   .products{
     margin-left: 2%;
   }
+  .shop {
+    background-color: white;
+  }
 }
 
 @media (min-width: 1280px) {
   .products{
     margin-left: 20%;
+  }
+  .shop {
+    background-color: white;
   }
 }
 
