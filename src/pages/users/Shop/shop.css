@@ -50,6 +50,7 @@ button{
 @media (max-width: 767px) {
   .shop {
     max-width: 900px;
+    background-color: white;
   }
 
   .product {
