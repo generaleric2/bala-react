@@ -47,19 +47,36 @@ button{
 }
 
 
-  @media (max-width: 768px) {
-    .shop {
-      max-width: 900px;
-    }
-
-    .product {
-        grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
-        max-width: 400px;
-        margin: 0 10px;
-      }
-  
-  
+@media (max-width: 767px) {
+  .shop {
+    max-width: 900px;
   }
+
+  .product {
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    max-width: 400px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .products{
+    margin-left: 2%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .products{
+    margin-left: 2%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .products{
+    margin-left: 20%;
+  }
+}
 
 .product-name{
     display: flex;
