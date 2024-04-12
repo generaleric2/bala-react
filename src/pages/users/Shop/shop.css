@@ -2,6 +2,7 @@
 .shop {
   margin: 0 auto;
   padding: 20px;
+  background-color: white;
  }
 
 .product {
@@ -39,10 +40,6 @@ button{
     background-color: white;
   }
 
-  .shopTitle h1{
-    color: black;
-  }
-
   .product {
     grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
     max-width: 400px;
@@ -55,6 +52,7 @@ button{
   .products{
     margin-left: 2%;
     width: 300px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

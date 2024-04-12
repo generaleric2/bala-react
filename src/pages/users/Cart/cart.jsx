@@ -5,7 +5,7 @@ import {Trash} from "phosphor-react"
 import styled from 'styled-components';
 import axios from 'axios';
 import {Link} from "react-router-dom"
-import { updateQuantity, removeFromCart } from '../reducers/cartSlice';
+import { updateQuantity, removeFromCart, clearCart } from '../reducers/cartSlice';
 import {Nav} from '../../../components/Nav'
 import './cart.css';
 
@@ -90,6 +90,7 @@ export const Cart = () => {
 
       if (response.status === 200) {
         alert('Your order has been received successfully!');
+        dispatch(clearCart());
       } else {
         console.log(response);
       }

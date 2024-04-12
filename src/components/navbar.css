@@ -115,6 +115,50 @@
         margin-top: 10px;
         margin-left: 10px;
     }
+    .logo span {
+      display: none;
+   }
+  
+   .dropdown span {
+      display: none;
+   }
+  
+   .cart-btn span {
+      display: none;
+   }
+ 
+   .cart-btn{
+     margin-top:12px;
+   }
+  
+   .dropdown-content {
+      right: 0;
+      top: 0;
+      width: 100px;
+      height: 20vh;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: white;
+      color: black;
+   }
+ 
+  
+   .dropdown-content a {
+      color: black;
+   }
+  
+   .dropdown-content a:hover {
+      color: black;
+   }
+  
+   /* Ensure the dropdowns are displayed inline on smaller screens */
+   .dropdown {
+      display: inline-flex;
+      align-items: center;
+      margin-right: -60px; /* Add some space between the dropdowns */
+   }
 }
 
 @media (max-width: 1024px) {
