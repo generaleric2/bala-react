@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
 .shop {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
  }
@@ -37,7 +36,6 @@ button{
 
 @media (max-width: 767px) {
   .shop {
-    max-width: 900px;
     background-color: white;
   }
 
@@ -63,9 +61,6 @@ button{
 @media (max-width: 1024px) {
   .products{
     margin-left: 2%;
-  }
-  .shop {
-    background-color: white;
   }
 }
 
