@@ -3,14 +3,14 @@ import  {Nav}  from '../../../components/Nav'
 import {motion} from 'framer-motion'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './shop.css';
+import './categories.css';
 
-export const Shop = () => {
+export const Men = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://bala-canvas.onrender.com/shop');
+      const response = await axios.get('https://bala-canvas.onrender.com/category/men');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

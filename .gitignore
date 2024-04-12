@@ -22,3 +22,34 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+
+<MDBContainer fluid className="my-5">
+      <MDBRow>
+        <MDBCol md="12" lg="4" className="mb-4 mb-lg-0">
+          <MDBCard>
+            <div className="d-flex justify-content-between p-3">
+              <p className="lead mb-0">Today's Combo Offer</p>
+              <div
+                className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                style={{ width: "35px", height: "35px" }}
+              >
+                <p className="text-white mb-0 small">x4</p>
+              </div>
+            </div>
+            <MDBCardImage
+              src={`https://bala-canvas.onrender.com/${product.productimage}`} alt="product"
+              position="top"
+            />
+            <MDBCardBody>
+
+              <div className="d-flex justify-content-between mb-3">
+                <h5 className='product-name'>{product.productname}</h5>
+                <h5 className="text-dark mb-0">UGX{product.price}</h5>
+              </div>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
