@@ -110,7 +110,6 @@
 
 @media (max-width: 767px) {
     .links{
-        position: fixed;
         right: 0;
         margin-top: 10px;
         margin-left: 10px;
@@ -119,9 +118,6 @@
       display: none;
    }
   
-   .dropdown span {
-      display: none;
-   }
   
    .cart-btn span {
       display: none;
@@ -134,7 +130,6 @@
    .dropdown-content {
       right: 0;
       top: 0;
-      width: 100px;
       height: 20vh;
       flex-direction: column;
       justify-content: center;
@@ -153,11 +148,9 @@
       color: black;
    }
   
-   /* Ensure the dropdowns are displayed inline on smaller screens */
    .dropdown {
       display: inline-flex;
-      align-items: center;
-      margin-right: -60px; /* Add some space between the dropdowns */
+      margin-left: 50px;
    }
 }
 
@@ -176,7 +169,7 @@
   }
  
   .dropdown span {
-     display: none;
+     display: flex;
   }
  
   .cart-btn span {
@@ -208,11 +201,10 @@
   .dropdown-content a:hover {
      color: black;
   }
- 
-  /* Ensure the dropdowns are displayed inline on smaller screens */
+
   .dropdown {
      display: inline-flex;
      align-items: center;
-     margin-right: -60px; /* Add some space between the dropdowns */
+     margin-right: -60px;
   }
  }

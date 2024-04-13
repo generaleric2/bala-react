@@ -41,8 +41,6 @@ button{
   }
 
   .product {
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
-    max-width: 400px;
     margin: 0 10px;
     display: flex;
     align-items: center;
@@ -51,8 +49,6 @@ button{
 
   .products{
     margin-left: 2%;
-    width: 300px;
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
