@@ -26,7 +26,7 @@ export const Shop = () => {
   return (
     <div className="shop">
        <Nav />
-      <div className="w-fit ms-40 mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+      <div className="w-fit  mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {data.map((product) => (
           <Link to={`/product/${product._id}`} key={product._id}>
           <motion.div key={product._id} className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" whileHover={{
