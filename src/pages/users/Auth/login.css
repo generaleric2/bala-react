@@ -12,7 +12,7 @@
     border-radius: 2px;
     border: 1px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 520px;
+    margin-left: 220px;
     width: 400px;
   }
   
@@ -75,5 +75,11 @@
   
   button[type="submit"]:hover {
     background-color: #00ced1;
+  }
+
+  @media (max-width: 768px) {
+    .login-container{
+      margin-right: 70px;
+    }
   }
   

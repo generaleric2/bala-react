@@ -102,45 +102,65 @@ export const Cart = () => {
   return (
     <>
     <Nav />
-    <Container>
-      <CartContainer>
-      {cart.items.map((item) => (
-        <div key={item.productId} className="cart-item">
-          <div className="product-image-pill">
-          <img src={`https://bala-canvas.onrender.com/${item.productimage}`} alt={item.productname} />
-          </div>
-          <div className="product-name">
-          <h3>{item.productname}</h3>
-          </div>
-          <div className="product-name">
-          <h3>{item.size}</h3>
-          </div>
-          <AmountContainer className='quantity'>
-            <Remove onClick={() => handleQuantity(item.productId, item.quantity - 1)} />
-            <Amount>{item.quantity}</Amount>
-            <Add onClick={() => handleQuantity(item.productId, item.quantity + 1)} />
-          </AmountContainer>
-          <div className="total">
-          <p> Price: UGX{item.price * item.quantity}</p>
-          </div>
-          <button onClick={() => handleRemoveItem(item.productId)} className='trash'><Trash size={32} /></button>
+    <div className="h-screen py-10 my-20 ms-20">
+        <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row gap-4">
+                <div class="md:w-700">
+                    <div className="bg-white rounded-lg shadow-md p-6 mb-4">
+                        <table className="w-full">
+                            <thead>
+                                <tr>
+                                    <th className="text-left font-semibold">Product</th>
+                                    <th className="text-left font-semibold">Quantity</th>
+                                    <th className="text-left font-semibold">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {cart.items.map((item) => (
+                                <tr key={item.productId}>
+                                    <td className="py-4">
+                                        <div className="flex items-center">
+                                            <img class="h-16 w-16 mr-4" src={`https://bala-canvas.onrender.com/${item.productimage}`} alt={item.productname} />
+                                            <span class="font-semibold">{item.productname}</span>
+                                        </div>
+                                    </td>
+                                    <td className="py-4">
+                                    <AmountContainer className='quantity'>
+                                    <Remove onClick={() => handleQuantity(item.productId, item.quantity - 1)} />
+                                    <Amount>{item.quantity}</Amount>
+                                    <Add onClick={() => handleQuantity(item.productId, item.quantity + 1)} />
+                                  </AmountContainer>
+                                    </td>
+                                    <td className="py-4 ml-10">UGX{item.price * item.quantity}</td>
+                                    <button onClick={() => handleRemoveItem(item.productId)} className='ml-10 bg-red-200'><Trash size={32} /></button>
+                                </tr>
+                                        ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div className="md:w-500">
+                    <div className="bg-white rounded-lg shadow-md p-6">
+                        <h2 className="text-lg font-semibold mb-4 ">Summary</h2>
+                        <div className="flex justify-between mb-2">
+                            <span>Subtotal</span>
+                            <span>UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0)}</span>
+                        </div>
+                        <div className="flex justify-between mb-2">
+                            <span>Shipping</span>
+                            <span>UGX 10,000</span>
+                        </div>
+                        <hr className="my-2"/>
+                        <div className="flex justify-between mb-2">
+                            <span className="font-semibold">Total</span>
+                            <span className="font-semibold">UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity , 0)+10000}</span>
+                        </div>
+                        <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={() =>handleCheckout (cart)}>ORDER NOW</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      ))}
-     </CartContainer>
-     <div className='shipping'>
-        <div className="total-price">
-        Sub Total: UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-        <h4>Shipping: UGX 10,000</h4>
-        <h3>Total: UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity , 0)+10000}</h3>
-        </div>
-        <button className='order-btn' onClick={() =>handleCheckout (cart)}>ORDER NOW</button>
-        </div>
-      </Container>
-      <div className='continue-shopping'>
-        <button>
-          <Link to="/">Continue Shopping</Link>
-        </button>
-        </div>
+    </div>
       </>
   );
 };

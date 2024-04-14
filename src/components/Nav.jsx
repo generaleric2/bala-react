@@ -7,10 +7,13 @@ import '../components/navbar.css'
 import { useSelector } from "react-redux"
 
 export const Nav = ()=>{
-
+  const [isOpen, setIsOpen] = useState(false);
   const cart = useSelector((state) => state.cart);
   const totalQuantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const storedIdToken = localStorage.getItem('idToken');
@@ -27,48 +30,44 @@ export const Nav = ()=>{
 
   
   return(
-    <div className="navbar">
-      <div className="logo">
-        <Link to="/"><img src="/logo.jpg" alt="shop logo"/></Link><span>BALA CANVAS</span>
+    <div className="flex flex-wrap items-center justify-between p-3">
+      <div className="h-10 w-20">
+        <Link to="/"><img src="/logo.jpg" alt="shop logo"/></Link>
       </div>
-      <div className="links">
-      <div class="dropdown">
-        <button>
-          <span>Categories</span>
+      <div class="flex md:hidden">
+        <button id="hamburger" onClick={toggleMenu}>
+        <img className={`toggle ${isOpen ? 'hidden' : 'block'}`} src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png" width="40" height="40" alt="Open Menu" />
+        <img className={`toggle ${isOpen ? 'block' : 'hidden'}`} src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png" width="40" height="40" alt="Close Menu" />
         </button>
-        <div class="dropdown-content">
-          <a href="/men">Men</a>
-          <a href="/women">Women</a>
-          <a href="/children">Children</a>
-          <a href="/">Sports</a>
-        </div>
-        </div>
-        <div class="dropdown">
-        <button>
-            {isLoggedIn ? <UserPlus size={30} /> : <UserPlus size={32} />}
-            <span>Account</span>
-          </button>
-          <div class="dropdown-content">
-            {isLoggedIn ? (
-              <button>
-                <button className="login" onClick={handleLogout}>
-                  <Lock size={30} /><a href='/login'><span>Logout</span></a>
-                </button>
-              </button>
-            ) : (
-              <button>
-                <LockOpen size={30} /><a href="/login" className="login"><span>Login</span></a>
-              </button>
-            )}
-          <hr></hr>
-          <a href="/orders">Orders</a>
-        </div>
-        </div>
-        </div>
+    </div>
+    <div className={`toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none ${isOpen ? 'block' : 'hidden'}`}>
+        <a href="/"
+            class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Sports
+        </a>
+        <a href="/men"
+            class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Men
+        </a>
+        <a href="/women"
+            class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Women
+        </a>
+        <a href="/children"
+            class="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none">Children
+        </a>
+    </div>
+    {isLoggedIn ? (
+            <a href="/login" onClick={handleLogout}
+            class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-blue-900 hover:bg-blue-100 text-white md:rounded">LOGOUT
+    
+        </a>
+    ) : (
+    <a href="/login"
+        class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-blue-900 hover:bg-blue-500 text-white md:rounded">LOGIN
+
+    </a>
+    )}
         <button className="cart-btn">
         <Link to="/cart">
             <ShoppingCart size={32} />
-            <span style={{marginLeft: '10px', marginTop: '25px'}}>Cart</span>
             {totalQuantity > 0 && (
               <span className="badge">{totalQuantity}</span>
             )}

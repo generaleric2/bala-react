@@ -34,6 +34,14 @@ button{
     justify-content: center;
 }
 
+h5{
+  color: black;
+}
+
+p{
+  color: black;
+}
+
 
 @media (max-width: 767px) {
   .shop {

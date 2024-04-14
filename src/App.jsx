@@ -11,6 +11,7 @@ import { Men } from './pages/users/categories/men'
 import { Women } from './pages/users/categories/women'
 import { Children } from './pages/users/categories/children'
 import { Orders } from './pages/users/orders/orders'
+import { Test } from './pages/test'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/women" element={<Women />} />
           <Route path="/children" element={<Children />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </Router>
     </Provider>
