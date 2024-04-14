@@ -100,7 +100,7 @@ export const Cart = () => {
   };
 
   return (
-    <>
+    <div className='container dark:bg-gray-800'>
     <Nav />
     <div className="h-screen py-10 my-20">
       <div className="container mx-auto px-4">
@@ -158,6 +158,6 @@ export const Cart = () => {
         </div>
       </div>
     </div>
-  </>
+  </div>
 );
 };
