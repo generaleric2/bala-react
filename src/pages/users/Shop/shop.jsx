@@ -43,7 +43,7 @@ export const Shop = () => {
           <Link to={`/product/${product._id}`} key={product._id}>
             <motion.div
               key={product._id}
-              className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
+              className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
               whileHover={{
                 scale: 1.2,
               }}
@@ -52,7 +52,7 @@ export const Shop = () => {
                 <img src={`https://bala-canvas.onrender.com/${product.productimage}`} alt="product" />
               </div>
               <div class="px-4 py-3 w-72">
-                <p className="text-lg font-bold text-black truncate block capitalize">{product.productname}</p>
+                <p className="text-lg font-bold text-{textColor} truncate block capitalize">{product.productname}</p>
                 <div class="flex items-center">
                   <p className="text-lg font-semibold text-black cursor-auto my-3">UGX{product.price}</p>
                 </div>

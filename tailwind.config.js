@@ -6,7 +6,12 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        black: '#000',
+        white: '#fff',
+      },
+    },
   },
   plugins: [],
 }
