@@ -50,7 +50,7 @@ export const Login = () => {
           <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black-100'>Email</label>
         </div>
         <div className="relative">
-          <input className='w-full p-2 border-b-2 border-gray-300 outline-none'
+          <input className='w-full p-2 border-b-2 outline-none'
             type="password"
             id="password"
             required
