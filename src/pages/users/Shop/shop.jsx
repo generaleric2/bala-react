@@ -36,14 +36,14 @@ export const Shop = () => {
   }, []);
 
   return (
-    <div className="shop pt-20"> 
+    <div className="shop pt-20">
       <Nav />
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {data.map((product) => (
           <Link to={`/product/${product._id}`} key={product._id}>
             <motion.div
               key={product._id}
-              className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl dark:bg-white pr-0"
+              className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
               whileHover={{
                 scale: 1.2,
               }}
@@ -51,10 +51,10 @@ export const Shop = () => {
               <div className="h-80 w-72 object-cover rounded-t-xl">
                 <img src={`https://bala-canvas.onrender.com/${product.productimage}`} alt="product" />
               </div>
-              <div class="px-4 py-3 w-72">
+              <div className="px-4 py-3 w-72">
                 <p className="text-lg font-bold text-{textColor} truncate block capitalize">{product.productname}</p>
-                <div class="flex items-center">
-                  <p className="text-lg font-semibold text-black cursor-auto my-3">UGX{product.price}</p>
+                <div className="flex items-center">
+                  <p className="text-lg font-bold text-{textColor} truncate block capitalize">UGX{product.price}</p>
                 </div>
               </div>
             </motion.div>

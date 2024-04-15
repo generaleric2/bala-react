@@ -11,6 +11,9 @@ export default {
         black: '#000',
         white: '#fff',
       },
+      backgroundColor: {
+        productCard: '#fff',
+      },
     },
   },
   plugins: [],
