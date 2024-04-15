@@ -76,10 +76,3 @@
   button[type="submit"]:hover {
     background-color: #00ced1;
   }
-
-  @media (max-width: 768px) {
-    .login-container{
-      margin-right: 70px;
-    }
-  }
-  

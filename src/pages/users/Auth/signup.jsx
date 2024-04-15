@@ -33,32 +33,52 @@ export const Signup=()=> {
 
 
     return (
-<div className="App">
-      <div className="login-container">
-        <img src="/signup.gif" alt="Login GIF" style={{ width: '200px' }} className='w-20 mx-auto mb-5'/>
+      <div className="flex items-center justify-center h-screen">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <img src="/signup.gif" alt="Signup GIF" className='w-20 mx-auto mb-5' />
         <h2 className='text-center text-2xl font-semibold text-gray-600'>Signup</h2>
-        <form className="login-form" onSubmit={handleSignup}>
-          <div className="input-group">
-            <input type="text" className = 'w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300' 
-            id="email" 
-            required onChange={(e) => setEmail(e.target.value)}/>
-            <label htmlFor="email" className='block mb-2 text-indigo-500'>Email</label>
+        <form className="mt-8 space-y-6" onSubmit={handleSignup}>
+          <div className="relative">
+            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500' 
+              id="email" 
+              required 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label htmlFor="email" className='absolute left-0 -top-3.5 text-gray-600 text-sm'>Email</label>
           </div>
-          <div className="input-group">
-            <input type="text" className='w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300' id="phonenumber" required onChange={(e) => setPhoneNumber(e.target.value)}/>
-            <label htmlFor="phonenumber" className='block mb-2 text-indigo-500'>Phone Number</label>
+          <div className="relative">
+            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500' 
+              id="phonenumber" 
+              required 
+              value={phonenumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <label htmlFor="phonenumber" className='absolute left-0 -top-3.5 text-gray-600 text-sm'>Phone Number</label>
           </div>
-          <div className="input-group">
-            <input type="text" className='w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300' id="address" required onChange={(e) => setAddress(e.target.value)}/>
-            <label htmlFor="address" className='block mb-2 text-indigo-500'>Address</label>
+          <div className="relative">
+            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500' 
+              id="address" 
+              required 
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <label htmlFor="address" className='absolute left-0 -top-3.5 text-gray-600 text-sm'>Address</label>
           </div>
-          <div className="input-group">
-            <input type="password" className='w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300' id="password" required onChange={(e) => setPassword(e.target.value)}/>
-            <label htmlFor="password" className='block mb-2 text-indigo-500'>Password</label>
+          <div className="relative">
+            <input type="password" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500' 
+              id="password" 
+              required 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label htmlFor="password" className='absolute left-0 -top-3.5 text-gray-600 text-sm'>Password</label>
           </div>
-          <button type="submit">Signup</button>
+          <button type="submit" className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">
+            Signup
+          </button>
         </form>
       </div>
     </div>
-    );
-}
+ );
+};

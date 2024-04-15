@@ -51,7 +51,7 @@ export const Details = ({ route }) => {
     <div className='container' style={{ backgroundColor: '#fff' }}>
       <Nav />
       <div className='flex-col md:flex-row justify-between flex gap-4 items-start mx-4 py-12'>
-        <div className='flex bg-white rounded-lg shadow dark:bg-gray-800 flex-col md:flex-row'>
+        <div className='flex bg-white rounded-lg shadow flex-col md:flex-row'>
         <div className='relative w-full md:w-60 flex justify-center items-center'>
         <img src={`https://bala-canvas.onrender.com/${product.productimage}`} alt={product.productname} 
         className='object-cover w-full h-48 md:h-full rounded-t-lg md:rounded-l-lg md:rounded-t-none'/>
