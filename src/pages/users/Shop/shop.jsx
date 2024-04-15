@@ -38,7 +38,7 @@ export const Shop = () => {
   return (
     <div className="shop pt-20">
       <Nav />
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+      <div className="w-full mx-auto bg-{backgroundColor} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {data.map((product) => (
           <Link to={`/product/${product._id}`} key={product._id}>
             <motion.div

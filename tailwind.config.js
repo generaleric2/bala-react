@@ -9,7 +9,6 @@ export default {
     extend: {
       textColor: {
         black: '#000',
-        white: '#fff',
       },
       backgroundColor: {
         productCard: '#fff',
