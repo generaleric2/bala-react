@@ -81,13 +81,13 @@ export const Cart = () => {
                  </div>
                  <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div className="flex items-center border-gray-100">
-                      <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleQuantity(item.productId, item.quantity - 1)} > - </span>
-                      <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={item.quantity} min="1" onChange={(e) => handleQuantity(item.productId, e.target.value)} />
-                      <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleQuantity(item.productId, item.quantity + 1)}> + </span>
+                      <span className="cursor-pointer rounded-l bg-gray-400 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleQuantity(item.productId, item.quantity - 1)} > - </span>
+                      <input className="h-8 w-8 border bg-gray-100 text-center text-xs outline-none" type="number" value={item.quantity} min="1" onChange={(e) => handleQuantity(item.productId, e.target.value)} />
+                      <span className="cursor-pointer rounded-r bg-gray-400 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleQuantity(item.productId, item.quantity + 1)}> + </span>
                     </div>
                     <div className="flex items-center space-x-4">
                       <p className="text-sm">UGX: {item.price * item.quantity}</p>
-                      <button onClick={() => handleRemoveItem(item.productId)} className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
+                      <button onClick={() => handleRemoveItem(item.productId)} className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer duration-150 hover:text-red-500 font-bold">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>

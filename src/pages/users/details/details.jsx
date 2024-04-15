@@ -58,20 +58,20 @@ export const Details = ({ route }) => {
       </div>
       <div className='flex-auto p-6'>
         <div className='flex flex-wrap'>
-      <h2 className='flex-auto text-xl font-semibold dark:text-gray-50'>{product.productname}</h2>
-      <p className='text-xl font-semibold text-gray-500 dark:text-gray-300'>UGX: {product.price}</p>
-      <p className='flex-none w-full mt-2 text-sm font-medium text-gray-500 dark:text-gray-300 my-10'>{product.description}</p>
+      <h2 className='flex-auto text-xl font-semibold text-black'>{product.productname}</h2>
+      <p className='text-xl font-semibold text-black'>UGX: {product.price}</p>
+      <p className='flex-none w-full mt-2 text-sm font-medium my-10 text-black'>{product.description}</p>
       </div>
       *Please Select a Size (optional)
       <div className='sizes'>
         {product.sizes.map((size, index) => (
-          <button className='rounded-full bg-gray-300 border border-gray px-4 py-2'
+          <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2'
             key={index}
             onClick={() => setSelectedSize(size)}
             style={selectedSize === size ? { backgroundColor: '#008080', color: 'white' } : {}}
-          >
+            >
             {size}
-          </button>
+            </button>
         ))}
       </div>
       <div className='flex mb-4 text-sm font-medium'>
