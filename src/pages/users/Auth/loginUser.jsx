@@ -39,25 +39,25 @@ export const Login = () => {
       <img src="/hwe.gif" alt="Login GIF" className='w-20 mx-auto mb-5' />
       <h2 className='text-center text-2xl font-semibold text-gray-600'>Login</h2>
       <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-        <div className="relative">
-          <input className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500'
+      <div className="relative">
+        <input className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black'
             type="text"
             id="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black-100'>Email</label>
+        />
+        <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black'>Email</label>
         </div>
         <div className="relative">
-          <input className='w-full p-2 border-b-2 outline-none'
+        <input className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black'
             type="password"
             id="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <label htmlFor="password" className='absolute left-0 -top-3.5 text-sm text-black-100'>Password</label>
+        />
+        <label htmlFor="password" className='absolute left-0 -top-3.5 text-sm text-black'>Password</label>
         </div>
         <button type="submit" disabled={isLoading} className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">
           {isLoading ? 'Loading...' : 'Login'}
