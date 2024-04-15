@@ -48,7 +48,7 @@ export const Details = ({ route }) => {
   }
 
   return (
-    <div className='container dark:bg-gray-800'>
+    <div className='container' style={{ backgroundColor: '#fff' }}>
       <Nav />
       <div className='flex-col md:flex-row justify-between flex gap-4 items-start mx-4 py-12'>
         <div className='flex bg-white rounded-lg shadow dark:bg-gray-800 flex-col md:flex-row'>

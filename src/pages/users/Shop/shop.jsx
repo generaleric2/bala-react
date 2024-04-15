@@ -28,7 +28,7 @@ export const Shop = () => {
 
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
     darkModeQuery.addEventListener('change', handleDarkModeChange);
-    handleDarkModeChange(darkModeQuery); // Initial check
+    handleDarkModeChange(darkModeQuery);
 
     return () => {
       darkModeQuery.removeEventListener('change', handleDarkModeChange);
