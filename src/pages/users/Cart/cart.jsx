@@ -2,55 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Remove, Add} from '@mui/icons-material';
 import {Trash} from "phosphor-react"
-import styled from 'styled-components';
 import axios from 'axios';
-import {Link} from "react-router-dom"
 import { updateQuantity, removeFromCart, clearCart } from '../reducers/cartSlice';
 import {Nav} from '../../../components/Nav'
 import './cart.css';
 
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  cursor: pointer;
-`;
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 900px;
-  margin-left: 140px;
-  margin: 0 auto;
-  padding: 20px;
-`;
-
-const CartContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 800px;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 5px;
-`;
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -102,10 +58,10 @@ export const Cart = () => {
   return (
 <>
       <Nav />
-      <div className="h-screen py-10 my-20 dark:bg-gray-800" style={{ backgroundColor: '#fff' }}>
+      <div className="h-screen py-10 my-20" style={{ backgroundColor: '#fff' }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4">
-            <div className="w-full md:w-7/12">
+            <div className="w-full md:w-full">
               <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 mb-4">
                 <table className="w-full md:table-auto">
                  <tbody>
@@ -136,11 +92,11 @@ export const Cart = () => {
                 </table>
               </div>
             </div>
-            <div className="w-full md:w-5/12">
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-lg md:text-xl font-semibold mb-4">Summary</h2>
+            <div className="w-full md:w-full">
+              <div className="bg-white rounded-lg shadow-md p-6 max-w-sm mx-auto">
+                <h2 className="text-xl font-semibold mb-4 text-center">Summary</h2>
                 <div className="flex justify-between mb-2">
-                 <span>Subtotal</span>
+                 <span className='summary-text text-center'>Subtotal</span>
                  <span>UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0)}</span>
                 </div>
                 <div className="flex justify-between mb-2">
@@ -152,7 +108,7 @@ export const Cart = () => {
                  <span className="font-semibold">Total</span>
                  <span className="font-semibold">UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity , 0)+10000}</span>
                 </div>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={() => handleCheckout(cart)}>ORDER NOW</button>
+                <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full sm:w-auto" onClick={() => handleCheckout(cart)}>ORDER NOW</button>
               </div>
             </div>
           </div>
