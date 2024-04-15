@@ -43,7 +43,7 @@ export const Shop = () => {
           <Link to={`/product/${product._id}`} key={product._id}>
             <motion.div
               key={product._id}
-              className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl bg-white"  // Removed dark:bg-gray-800
+              className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl bg-white"
               whileHover={{
                 scale: 1.2,
               }}

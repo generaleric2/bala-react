@@ -102,7 +102,7 @@ export const Cart = () => {
   return (
 <>
       <Nav />
-      <div className="h-screen py-10 my-20 dark:bg-gray-800">
+      <div className="h-screen py-10 my-20 dark:bg-gray-800" style={{ backgroundColor: '#fff' }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full md:w-7/12">
