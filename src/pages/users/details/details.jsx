@@ -68,7 +68,7 @@ export const Details = ({ route }) => {
           <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2'
             key={index}
             onClick={() => setSelectedSize(size)}
-            style={selectedSize === size ? { backgroundColor: '#008080', color: 'white' } : {}}
+            style={selectedSize === size ? { backgroundColor: '#008080', color: 'black', font: 'bold' } : {}}
             >
             {size}
             </button>

@@ -45,7 +45,7 @@ export const Signup=()=> {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm'>Email</label>
+            <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black-100'>Email</label>
           </div>
           <div className="relative">
             <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500' 
@@ -54,7 +54,7 @@ export const Signup=()=> {
               value={phonenumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
-            <label htmlFor="phonenumber" className='absolute left-0 -top-3.5 text-sm'>Phone Number</label>
+            <label htmlFor="phonenumber" className='absolute left-0 -top-3.5 text-sm text-black-100'>Phone Number</label>
           </div>
           <div className="relative">
             <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500' 

@@ -46,20 +46,18 @@ export const Login = () => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
           />
-          <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm'>Email</label>
+          <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black-100'>Email</label>
         </div>
         <div className="relative">
-          <input className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500'
+          <input className='w-full p-2 border-b-2 border-gray-300 outline-none'
             type="password"
             id="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
           />
-          <label htmlFor="password" className='absolute left-0 -top-3.5 text-sm'>Password</label>
+          <label htmlFor="password" className='absolute left-0 -top-3.5 text-sm text-black-100'>Password</label>
         </div>
         <button type="submit" disabled={isLoading} className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">
           {isLoading ? 'Loading...' : 'Login'}
