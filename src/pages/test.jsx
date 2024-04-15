@@ -2,67 +2,110 @@ import React, { useState } from 'react';
 
 export const Test =()=> {
     return (
-        <div className="bg-gray-100 h-screen py-8">
-        <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row gap-4">
-                <div class="md:w-3/4">
-                    <div className="bg-white rounded-lg shadow-md p-6 mb-4">
-                        <table className="w-full">
-                            <thead>
-                                <tr>
-                                    <th className="text-left font-semibold">Product</th>
-                                    <th className="text-left font-semibold">Price</th>
-                                    <th className="text-left font-semibold">Size</th>
-                                    <th className="text-left font-semibold">Quantity</th>
-                                    <th className="text-left font-semibold">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {cart.items.map((item) => (
-                                <tr key={item.productId}>
-                                    <td className="py-4">
-                                        <div className="flex items-center">
-                                            <img class="h-16 w-16 mr-4" src="{`https://bala-canvas.onrender.com/${item.productimage}" alt="Product image"/>
-                                            <span class="font-semibold">{item.productname}</span>
-                                        </div>
-                                    </td>
-                                    <td className="py-4">UGX{item.price}</td>
-                                    <td className="py-4">{item.size}</td>
-                                    <td className="py-4">
-                                        <div className="flex items-center">
-                                            <button className="border rounded-md py-2 px-4 mr-2">-</button>
-                                            <span className="text-center w-8">1</span>
-                                            <button className="border rounded-md py-2 px-4 ml-2">+</button>
-                                        </div>
-                                    </td>
-                                    <td className="py-4">UGX{item.price * item.quantity}</td>
-                                </tr>
-                                        ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div className="md:w-1/4">
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-semibold mb-4">Summary</h2>
-                        <div className="flex justify-between mb-2">
-                            <span>Subtotal</span>
-                            <span>UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0)}</span>
-                        </div>
-                        <div className="flex justify-between mb-2">
-                            <span>Shipping</span>
-                            <span>UGX 10,000</span>
-                        </div>
-                        <hr className="my-2"/>
-                        <div className="flex justify-between mb-2">
-                            <span className="font-semibold">Total</span>
-                            <span className="font-semibold">UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity , 0)+10000}</span>
-                        </div>
-                        <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={() =>handleCheckout (cart)}>ORDER NOW</button>
-                    </div>
-                </div>
+        <nav className="bg-gray-800 text-white">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="flex items-center">
+            <div className="h-10 w-20">
+              <Link to="/">
+                <img src="/logo.jpg" alt="shop logo" />
+              </Link>
             </div>
+            <button
+              onClick={toggleMenu}
+              className="md:hidden ml-auto block text-white text-xl focus:outline-none"
+            >
+              {isOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12.293 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L9.586 11H4a1 1 0 110-2h5.586l-2.293-2.293a1 1 0 111.414-1.414l4 4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4 6a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM3 10a1 1 0 011-1h10a1 1 0 110 2H4a1 1 0 01-1-1zm14-3a1 1 0 00-1-1H6a1 1 0 100 2h10a1 1 0 001-1zm-1 6a1 1 0 100-2H6a1 1 0 100 2h10z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+          <div className={`md:flex items-center ${isOpen ? 'block' : 'hidden'}`}>
+            <ul className="md:flex md:space-x-4">
+              <li>
+                <Link
+                  to="/"
+                  className="block py-2 px-4 hover:bg-gray-700 rounded"
+                >
+                  Sports
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="block py-2 px-4 hover:bg-gray-700 rounded"
+                >
+                  Men
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="block py-2 px-4 hover:bg-gray-700 rounded"
+                >
+                  Women
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="block py-2 px-4 hover:bg-gray-700 rounded"
+                >
+                  Children
+                </Link>
+              </li>
+              <li>
+              </li>
+            </ul>
+            <div className="md:ml-auto">
+              <Link to="/cart" className="flex items-center">
+                <ShoppingCart size={32} />
+                {totalQuantity > 0 && <span className="ml-2">{totalQuantity}</span>}
+              </Link>
+            </div>
+            {/* Login/Logout Button Inside the Toggle Menu */}
+            <div className="mt-4">
+              {isLoggedIn ? (
+                <button
+                  onClick={handleLogout}
+                  className="block px-4 py-2 text-white bg-blue-900 rounded hover:bg-blue-700 focus:outline-none"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="block px-4 py-2 text-white bg-blue-900 rounded hover:bg-blue-700 focus:outline-none"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
-    </div>
+      </nav>
     );
-}
+  };
