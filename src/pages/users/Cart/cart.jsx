@@ -5,6 +5,7 @@ import axios from 'axios';
 import { updateQuantity, removeFromCart, clearCart } from '../reducers/cartSlice';
 import {Nav} from '../../../components/Nav'
 import './cart.css';
+import emailjs from "@emailjs/browser";
 
 
 export const Cart = () => {
@@ -30,6 +31,10 @@ export const Cart = () => {
  }, []);
 
   const handleCheckout = async (cart) => {
+    if (cart.items.length === 0) {
+      alert('Your cart is empty. Please add items to proceed with checkout.');
+      return;
+   }
     const productName = cart.items ? cart.items.map((item) => item.productname).join(', ') : '';
     const size = cart.items ? cart.items.map((item) => item.size).join(', ') : '';
     const totalPrice = cart.items
@@ -44,23 +49,42 @@ export const Cart = () => {
         console.error('UID or idToken not found.');
         return;
       }
-      const response = await axios.post('https://bala-canvas.onrender.com/checkout', {
+      const response = await axios.get(`https://bala-canvas.onrender.com/customers/${uid}/email`);
+      const userEmail = response.data.email;
+  
+      const checkoutResponse = await axios.post('https://bala-canvas.onrender.com/checkout', {
         productName,
         totalPrice,
         quantity,
         size,
         uid,
       });
-
-      if (response.status === 200) {
+  
+      if (checkoutResponse.status === 200) {
         alert('Your order has been received successfully!');
         dispatch(clearCart());
+        const templateParams = {
+          productName: productName,
+          totalPrice: totalPrice,
+          quantity: quantity,
+          size: size,
+          userEmail: userEmail,
+        };
+
+        emailjs.init("LPfIrBdBcOXiGfeHh");
+  
+        emailjs.send('service_qp8rhsa', 'template_6sxi4jr', templateParams)
+        .then((result) => {
+           console.log('Email sent successfully!', result.text);
+        }, (error) => {
+           console.log('Email failed to send:', error);
+        });
       } else {
-        console.log(response);
+        console.log(checkoutResponse);
       }
-    } catch (error) {
+   } catch (error) {
       console.log(error);
-    }
+   }
   };
 
   return (

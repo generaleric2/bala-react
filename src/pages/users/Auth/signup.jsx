@@ -23,6 +23,7 @@ export const Signup=()=> {
 
       alert('Signup Successful', 'You can now login with your credentials.');
       navigate('/login');
+      console.log(response);
     } catch (error) {
       alert('Signup Failed', 'Please check your details and try again.');
       navigate('/signup');
@@ -38,6 +39,15 @@ export const Signup=()=> {
         <img src="/signup.gif" alt="Signup GIF" className='w-20 mx-auto mb-5' />
         <h2 className='text-center text-2xl font-semibold text-gray-600'>Signup</h2>
         <form className="mt-8 space-y-6" onSubmit={handleSignup}>
+        <div className="relative">
+            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
+              id="username" 
+              required 
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black'>Names</label>
+          </div>
           <div className="relative">
             <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
               id="email" 
