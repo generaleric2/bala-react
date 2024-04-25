@@ -30,62 +30,74 @@ export const Cart = () => {
     }
  }, []);
 
-  const handleCheckout = async (cart) => {
-    if (cart.items.length === 0) {
-      alert('Your cart is empty. Please add items to proceed with checkout.');
-      return;
-   }
-    const productName = cart.items ? cart.items.map((item) => item.productname).join(', ') : '';
-    const size = cart.items ? cart.items.map((item) => item.size).join(', ') : '';
-    const totalPrice = cart.items
-      ? cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0)
-      : 0;
-    const quantity = cart.items ? cart.items.reduce((acc, item) => acc + item.quantity, 0) : 0;
-    const uid = localStorage.getItem('uid');
-    const idToken = localStorage.getItem('idToken');
-
-    try {
-      if (!uid || !idToken) {
-        console.error('UID or idToken not found.');
-        return;
-      }
-      const response = await axios.get(`https://bala-canvas.onrender.com/customers/${uid}/email`);
-      const userEmail = response.data.email;
-  
-      const checkoutResponse = await axios.post('https://bala-canvas.onrender.com/checkout', {
-        productName,
-        totalPrice,
-        quantity,
-        size,
-        uid,
-      });
-  
-      if (checkoutResponse.status === 200) {
-        alert('Your order has been received successfully!');
-        dispatch(clearCart());
-        const templateParams = {
-          productName: productName,
-          totalPrice: totalPrice,
-          quantity: quantity,
-          size: size,
-          userEmail: userEmail,
-        };
-
-        emailjs.init("LPfIrBdBcOXiGfeHh");
-  
-        emailjs.send('service_qp8rhsa', 'template_6sxi4jr', templateParams)
-        .then((result) => {
+ const handleCheckout = async (cart) => {
+  if (cart.items.length === 0) {
+     alert('Your cart is empty. Please add items to proceed with checkout.');
+     return;
+  }
+ 
+  // Prepare the products array for the request body
+  const products = cart.items.map(item => ({
+     productName: item.productname,
+     size: item.size,
+     quantity: item.quantity
+  }));
+ 
+  // Calculate the total price
+  const totalPrice = cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+ 
+  // Retrieve the user's UID and ID token
+  const uid = localStorage.getItem('uid');
+  const idToken = localStorage.getItem('idToken');
+ 
+  try {
+     if (!uid || !idToken) {
+       console.error('UID or idToken not found.');
+       return;
+     }
+ 
+     // Fetch the user's email
+     const response = await axios.get(`https://bala-canvas.onrender.com/customers/${uid}/email`);
+     const userEmail = response.data.email;
+ 
+     // Send the checkout request
+     const checkoutResponse = await axios.post('https://bala-canvas.onrender.com/checkout', {
+       products,
+       totalPrice,
+       uid,
+     });
+ 
+     if (checkoutResponse.status === 200) {
+       alert('Your order has been received successfully!');
+       dispatch(clearCart());
+ 
+       // Prepare email parameters
+       const productImageUrls = cart.items.map(item => item.productimage).join(', ');
+       const templateParams = {
+         productName: products.map(product => product.productName).join(', '),
+         totalPrice,
+         quantity: products.reduce((acc, product) => acc + product.quantity, 0),
+         size: products.map(product => product.size).join(', '),
+         userEmail,
+         productImageUrls,
+       };
+ 
+       // Send email
+       emailjs.init("LPfIrBdBcOXiGfeHh");
+       emailjs.send('service_qp8rhsa', 'template_6sxi4jr', templateParams)
+         .then((result) => {
            console.log('Email sent successfully!', result.text);
-        }, (error) => {
+         }, (error) => {
            console.log('Email failed to send:', error);
-        });
-      } else {
-        console.log(checkoutResponse);
-      }
-   } catch (error) {
-      console.log(error);
-   }
-  };
+         });
+     } else {
+       console.log(checkoutResponse);
+     }
+  } catch (error) {
+     console.log(error);
+  }
+ };
+ 
 
   return (
       <div className="h-screen pt-20" style={{ backgroundColor: '#fff' }}>
