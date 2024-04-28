@@ -52,9 +52,9 @@ export const Details = ({ route }) => {
       <Nav />
       <div className='flex-col md:flex-row justify-between flex gap-4 items-start mx-4 py-12'>
         <div className='flex bg-white rounded-lg shadow flex-col md:flex-row'>
-        <div className='relative w-full md:w-60 flex justify-center items-center'>
+        <div className='w-full h-full flex justify-center items-center overflow-hidden'>
         <img src={`https://bala-canvas.onrender.com/${product.productimage}`} alt={product.productname} 
-        className='object-cover w-full h-48 md:h-full rounded-t-lg md:rounded-l-lg md:rounded-t-none'/>
+        className='max-w-full max-h-full'/>
       </div>
       <div className='flex-auto p-6'>
         <div className='flex flex-wrap'>

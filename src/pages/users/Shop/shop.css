@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .shop .grid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+    .shop .w-72 { /* Adjust width for smaller screens if needed */
+      width: calc(100% - 14px);
+      height: calc(100% - 15px);
+    }
+  }

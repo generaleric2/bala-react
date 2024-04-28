@@ -100,7 +100,6 @@ export const Nav = () => {
               <li>
               </li>
             </ul>
-            {/* Login/Logout Button Inside the Toggle Menu */}
             <div className="md:ml-40">
               {isLoggedIn ? (
                 <button
