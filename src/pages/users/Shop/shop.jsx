@@ -10,7 +10,7 @@ export const Shop = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://bala-canvas.onrender.com/shop');
+      const response = await axios.get('http://bala-canvas.eu-north-1.elasticbeanstalk.com/shop');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -49,7 +49,7 @@ export const Shop = () => {
               }}
             >
               <div className="h-80 w-72 object-cover rounded-t-xl">
-                <img src={`https://bala-canvas.onrender.com/${product.productimage}`} alt="product" />
+              <img src={`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${product.productimage[0]}`} alt="product" />
               </div>
               <div className="px-4 py-3 w-72">
                 <p className="text-lg font-bold text-black truncate block capitalize">{product.productname}</p>

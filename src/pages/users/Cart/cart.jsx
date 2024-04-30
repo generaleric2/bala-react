@@ -57,11 +57,11 @@ export const Cart = () => {
      }
  
      // Fetch the user's email
-     const response = await axios.get(`https://bala-canvas.onrender.com/customers/${uid}/email`);
+     const response = await axios.get(`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${uid}/email`);
      const userEmail = response.data.email;
  
      // Send the checkout request
-     const checkoutResponse = await axios.post('https://bala-canvas.onrender.com/checkout', {
+     const checkoutResponse = await axios.post('http://bala-canvas.eu-north-1.elasticbeanstalk.com/checkout', {
        products,
        totalPrice,
        uid,
@@ -108,7 +108,7 @@ export const Cart = () => {
           <div className="rounded-lg md:w-2/3">
             {cart.items.map((item) => (
               <div key={item.productId} className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                <img src={`https://bala-canvas.onrender.com/${item.productimage}`} alt={item.productname} className="w-full rounded-lg sm:w-40" />
+                <img src={`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${item.productimage[0]}`} alt={item.productname} className="w-full rounded-lg sm:w-40" />
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                  <div className="mt-5 sm:mt-0">
                     <h2 className="text-lg font-bold text-gray-900">{item.productname}</h2>

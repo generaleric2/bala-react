@@ -12,6 +12,14 @@ export default {
       backgroundColor: {
         productCard: '#fff',
       },
+      width:{
+        '200':  '100%',
+        '600': '300px'
+      },
+      height:{
+        '200':'100%',
+        '600':'400px'
+      }
     },
   },
   plugins: [],

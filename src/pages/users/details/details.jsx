@@ -4,22 +4,23 @@ import { addToCart } from '../reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 import './details.css';
 
-export const Details = ({ route }) => {
+export const Details = ({ route }) => {;
   const [selectedSize, setSelectedSize] = useState('');
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
   const { productId } = useParams();
   const cart = useSelector((state) => state.cart);
-  const totalQuantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://bala-canvas.onrender.com/shop/${productId}`);
+        const response = await axios.get(`http://bala-canvas.eu-north-1.elasticbeanstalk.com/shop/${productId}`);
         setProduct(response.data);
-        console.log("Fetched Product:", response.data);
       } catch (error) {
         console.error('Error fetching product:', error);
       }
@@ -27,6 +28,7 @@ export const Details = ({ route }) => {
 
     fetchProduct();
   }, [productId]);
+
 
   const handleAddToCart = () => {
     if (product) {
@@ -43,45 +45,78 @@ export const Details = ({ route }) => {
     }
   };
 
+
+
   if (!product) {
     return <div>Loading...</div>;
   }
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+  };
+
   return (
     <div className='container' style={{ backgroundColor: '#fff' }}>
-      <Nav />
-      <div className='flex-col md:flex-row justify-between flex gap-4 items-start mx-4 py-12'>
-        <div className='flex bg-white rounded-lg shadow flex-col md:flex-row'>
-        <div className='w-full h-full flex justify-center items-center overflow-hidden'>
-        <img src={`https://bala-canvas.onrender.com/${product.productimage}`} alt={product.productname} 
-        className='max-w-full max-h-full'/>
-      </div>
-      <div className='flex-auto p-6'>
-        <div className='flex flex-wrap'>
-      <h2 className='flex-auto text-xl font-semibold text-black'>{product.productname}</h2>
-      <p className='text-xl font-semibold text-black'>UGX: {product.price}</p>
-      <p className='flex-none w-full mt-2 text-sm font-medium my-10 text-black'>{product.description}</p>
-      </div>
-      *Please Select a Size (optional)
-      <div className='sizes'>
-        {product.sizes.map((size, index) => (
-          <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2'
-            key={index}
-            onClick={() => setSelectedSize(size)}
-            style={selectedSize === size ? { backgroundColor: '#008080', color: 'black', font: 'bold' } : {}}
-            >
-            {size}
-            </button>
-        ))}
-      </div>
-      <div className='flex mb-4 text-sm font-medium'>
-        <button className='py-2 px-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg my-10'
-        onClick={handleAddToCart}>Add to Cart</button>
-      </div>
-      </div>
-    </div>
+    <Nav />
+    <div className='flex justify-center items-center mt-8'>
+      <div className='bg-white rounded-lg shadow-lg w-full md:w-full lg:w-3/4'> 
+        <div className='flex flex-wrap md:flex-nowrap justify-between items-center'>
+          <div className='md:w-1/2 w-600 h-600 overflow-hidden relative object-cover '>
+            {product.productimage.length > 1 ? (
+              <Slider {...settings}>
+               {product.productimage.map((image, index) => (
+                  <div key={index}>
+                    <img
+                      src={`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${image}`}
+                      alt={`${product.productname} Slide ${index + 1}`}
+                      className='w-200 h-200 top-0 left-0 overflow-hidden'
+                    />
+                  </div>
+                ))}
+              </Slider>
+            ) : (
+              <img
+               src={`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${product.productimage[0]}`}
+               alt={product.productname}
+               className='w-20 h-full'
+              />
+            )}
+          </div>
+          <div className='w-full md:w-1/2 p-6'>
+            <div className='flex flex-wrap justify-between items-center'>
+              <h2 className='text-xl md:text-lg font-semibold text-black'>{product.productname}</h2>
+              <p className='text-xl md:text-lg font-semibold text-black'>UGX: {product.price}</p>
+            </div>
+            <p className='mt-2 text-sm font-medium text-black'>{product.description}</p>
+            *Please Select a Size (optional)
+            <div className='sizes'>
+              {product.sizes.map((size, index) => (
+                <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2 ml-10'
+                  key={index}
+                  onClick={() => setSelectedSize(size)}
+                  style={selectedSize === size ? { backgroundColor: '#008080', color: 'black', font: 'bold' } : {}}
+                  >
+                  {size}
+                  </button>
+              ))}
+            </div>
+            <div className='mt-4'>
+              <button
+               className='py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg'
+               onClick={handleAddToCart}
+              >
+               Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
-  );
+    </div>
+  </div>
+);
 };
