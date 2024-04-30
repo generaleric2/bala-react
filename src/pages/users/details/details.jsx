@@ -19,7 +19,7 @@ export const Details = ({ route }) => {;
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://bala-canvas.eu-north-1.elasticbeanstalk.com/shop/${productId}`);
+        const response = await axios.get(`https://bala-canvas.onrender.com/shop/${productId}`);
         setProduct(response.data);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -72,7 +72,7 @@ export const Details = ({ route }) => {;
                {product.productimage.map((image, index) => (
                   <div key={index}>
                     <img
-                      src={`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${image}`}
+                      src={`https://bala-canvas.onrender.com/${image}`}
                       alt={`${product.productname} Slide ${index + 1}`}
                       className='w-200 h-200 top-0 left-0 overflow-hidden'
                     />
@@ -81,7 +81,7 @@ export const Details = ({ route }) => {;
               </Slider>
             ) : (
               <img
-               src={`http://bala-canvas.eu-north-1.elasticbeanstalk.com/${product.productimage[0]}`}
+               src={`https://bala-canvas.onrender.com/${product.productimage[0]}`}
                alt={product.productname}
                className='w-20 h-full'
               />
