@@ -98,7 +98,7 @@ export const Details = ({ route }) => {;
             *Please Select a Size (optional)
             <div className='sizes'>
               {product.sizes.map((size, index) => (
-                <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2 ml-10'
+                <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2 ml-10 text-black font-bold'
                   key={index}
                   onClick={() => setSelectedSize(size)}
                   style={selectedSize === size ? { backgroundColor: '#008080', color: 'black', font: 'bold' } : {}}
