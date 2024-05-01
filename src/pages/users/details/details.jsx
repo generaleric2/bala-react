@@ -65,34 +65,36 @@ export const Details = ({ route }) => {;
     <Nav />
     <div className='flex justify-center items-center mt-8'>
       <div className='bg-white rounded-lg shadow-lg w-full md:w-full lg:w-3/4'> 
-        <div className='flex flex-wrap md:flex-nowrap justify-between items-center'>
-          <div className='md:w-1/2 w-600 h-600 overflow-hidden relative object-cover '>
-            {product.productimage.length > 1 ? (
-              <Slider {...settings}>
-               {product.productimage.map((image, index) => (
+        <div className='flex flex-wrap justify-between items-center  md:flex-row'>
+          <div className='md:w-1/2 w-600 h-600 overflow-hidden'>
+          {product.productimage && ( 
+  product.productimage.length > 1 ? (
+    <Slider {...settings}>
+      {product.productimage.map((image, index) => (
                   <div key={index}>
                     <img
                       src={`https://bala-canvas.onrender.com/${image}`}
                       alt={`${product.productname} Slide ${index + 1}`}
-                      className='w-200 h-200 top-0 left-0 overflow-hidden'
+                      className='w-auto h-auto object-contain overflow-hidden'
                     />
                   </div>
                 ))}
-              </Slider>
-            ) : (
-              <img
+    </Slider>
+  ) : (
+    <img
                src={`https://bala-canvas.onrender.com/${product.productimage[0]}`}
                alt={product.productname}
                className='w-20 h-full'
               />
-            )}
+  )
+)}
           </div>
           <div className='w-full md:w-1/2 p-6'>
             <div className='flex flex-wrap justify-between items-center'>
               <h2 className='text-xl md:text-lg font-semibold text-black'>{product.productname}</h2>
               <p className='text-xl md:text-lg font-semibold text-black'>UGX: {product.price}</p>
             </div>
-            <p className='mt-2 text-sm font-medium text-black'>{product.description}</p>
+            <p className='mt-2 text-sm font-medium text-black mb-10'>{product.description}</p>
             *Please Select a Size (optional)
             <div className='sizes'>
               {product.sizes.map((size, index) => (
@@ -105,9 +107,9 @@ export const Details = ({ route }) => {;
                   </button>
               ))}
             </div>
-            <div className='mt-4'>
+            <div className='flex mb-4 text-sm font-medium'>
               <button
-               className='py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg'
+               className='py-2 px-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg my-10'
                onClick={handleAddToCart}
               >
                Add to Cart

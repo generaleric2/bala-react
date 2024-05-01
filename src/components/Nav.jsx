@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import '../components/navbar.css';
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 export const Nav = () => {
  const [isOpen, setIsOpen] = useState(false);
  const cart = useSelector((state) => state.cart);
  const totalQuantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ const navigate = useNavigate();
 
  const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,6 +28,7 @@ export const Nav = () => {
     localStorage.removeItem('uid');
     localStorage.removeItem('idToken');
     setIsLoggedIn(false);
+    navigate('/login')
  };
 
  return (
