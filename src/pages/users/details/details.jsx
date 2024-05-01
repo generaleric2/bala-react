@@ -66,7 +66,7 @@ export const Details = ({ route }) => {;
     <div className='flex justify-center items-center mt-8'>
       <div className='bg-white rounded-lg shadow-lg w-full md:w-full lg:w-3/4'> 
         <div className='flex flex-wrap justify-between items-center  md:flex-row'>
-          <div className='md:w-1/2 w-600 h-600 overflow-hidden'>
+          <div className='md:w-1/2 w-600 h-600 overflow-hidden mt-10 ml-10'>
           {product.productimage && ( 
   product.productimage.length > 1 ? (
     <Slider {...settings}>
