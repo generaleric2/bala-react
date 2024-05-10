@@ -144,9 +144,9 @@ export const Cart = () => {
             </div>
             <hr className="my-4" />
             <div className="flex justify-between">
-              <p className="text-lg font-bold">Total</p>
+              <p className="text-lg text-black font-bold">Total</p>
               <div className="">
-                <p className="mb-1 text-lg font-bold">UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0) + 10000}</p>
+                <p className="mb-1 text-lg text-black font-bold">UGX{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0) + 10000}</p>
                 <p className="text-sm text-gray-700">including VAT</p>
               </div>
             </div>

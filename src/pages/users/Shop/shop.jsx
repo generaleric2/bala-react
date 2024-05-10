@@ -38,7 +38,7 @@ export const Shop = () => {
   return (
     <div className="shop pt-20" style={{ backgroundColor: '#fff' }}>
       <Nav />
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {data.map((product) => (
           <Link to={`/product/${product._id}`} key={product._id}>
             <motion.div
@@ -48,8 +48,8 @@ export const Shop = () => {
                 scale: 1.2,
               }}
             >
-              <div className="h-80 w-72 object-cover rounded-t-xl">
-              <img src={product.productimage && Array.isArray(product.productimage) && product.productimage.length > 0? `https://bala-canvas.onrender.com/${product.productimage[0]}`: ''} alt={product.productname} onError={(error) => {console.error('Error loading image:', error)}}/>
+              <div className="h-80 w-72 rounded-t-xl overflow-hidden"> {/* Updated class */}
+                <img src={product.productimage && Array.isArray(product.productimage) && product.productimage.length > 0? `https://bala-canvas.onrender.com/${product.productimage[0]}`: ''} alt={product.productname} onError={(error) => {console.error('Error loading image:', error)}} style={{ width: '100%', height: 'auto' }} /> {/* Updated style */}
               </div>
               <div className="px-4 py-3 w-72">
                 <p className="text-lg font-bold text-black truncate block capitalize">{product.productname}</p>
