@@ -37,8 +37,8 @@ export const Signup=()=> {
       <div class="mx-auto max-w-md space-y-6 py-12 ml-10">
       <div class="space-y-2 text-center">
       <img src="/signup.gif" alt="Signup GIF" className='w-20 mx-auto mb-5' />
-        <h1 class="text-3xl font-bold dark:text-black">Sign Up</h1>
-        <p class="text-gray-500 dark:text-gray-400">Create your account to get started.</p>
+        <h1 class="text-3xl font-bold text-black dark:text-black">Sign Up</h1>
+        <p class="text-gray-500 dark:text-black">Create your account to get started.</p>
       </div>
       <form class="space-y-4" onSubmit={handleSignup}>
         <div class="space-y-2">

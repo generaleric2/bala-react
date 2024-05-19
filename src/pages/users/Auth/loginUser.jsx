@@ -38,8 +38,8 @@ export const Login = () => {
   <div class="w-full max-w-md space-y-4 rounded-lg bg-white p-6 shadow-lg dark:bg-white">
     <div class="space-y-2 text-center">
       <img src="/hwe.gif" alt="Login GIF" className='w-20 mx-auto mb-5' />
-      <h1 class="text-3xl font-bold text-black">Welcome Back</h1>
-      <p class="text-gray-500 dark:text-black">Enter your email and password to sign in.</p>
+      <h1 class="text-3xl font-bold text-black dark:text-black">Welcome Back</h1>
+      <p class="text-black dark:text-black">Enter your email and password to sign in.</p>
     </div>
     <form class="space-y-4"  onSubmit={handleLogin}>
       <div class="space-y-2">
