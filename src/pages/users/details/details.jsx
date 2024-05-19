@@ -136,10 +136,10 @@ export const Details = ({ route }) => {
         {/* Product Details Section */}
         <div className="grid gap-4 md:gap-10 items-start mt-20">
           <div className="grid gap-2">
-            <h1 className="font-bold text-3xl">{product.productname}</h1>
-            <p className='font-bold text-2xl'>UGX: {product.price}</p>
+            <h1 className="font-bold text-3xl text-black">{product.productname}</h1>
+            <p className='font-bold text-2xl text-black'>UGX: {product.price}</p>
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-4 text-black">
             <p>{product.description}</p>
           </div>
           *Please Select a Size
