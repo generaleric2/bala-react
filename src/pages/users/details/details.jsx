@@ -133,7 +133,6 @@ export const Details = ({ route }) => {
             </button>
           </div>
         </div>
-        {/* Product Details Section */}
         <div className="grid gap-4 md:gap-10 items-start mt-20">
           <div className="grid gap-2">
             <h1 className="font-bold text-3xl text-black">{product.productname}</h1>
@@ -142,7 +141,10 @@ export const Details = ({ route }) => {
           <div className="grid gap-4 text-black">
             <p>{product.description}</p>
           </div>
+
+          <div className='text-black'>
           *Please Select a Size
+          </div>
             <div className='sizes'>
               {product.sizes.map((size, index) => (
                 <button className='rounded-lg bg-gray-300 border border-gray px-4 py-2 ml-10 text-black font-bold'

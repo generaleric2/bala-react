@@ -38,19 +38,19 @@ export const Login = () => {
   <div class="w-full max-w-md space-y-4 rounded-lg bg-white p-6 shadow-lg dark:bg-white">
     <div class="space-y-2 text-center">
       <img src="/hwe.gif" alt="Login GIF" className='w-20 mx-auto mb-5' />
-      <h1 class="text-3xl font-bold">Welcome Back</h1>
-      <p class="text-gray-500 dark:text-gray-400">Enter your email and password to sign in.</p>
+      <h1 class="text-3xl font-bold text-black">Welcome Back</h1>
+      <p class="text-gray-500 dark:text-black">Enter your email and password to sign in.</p>
     </div>
     <form class="space-y-4"  onSubmit={handleLogin}>
       <div class="space-y-2">
         <label
-          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
           for="email"
         >
           Email
         </label>
         <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
           type="email"
           id="email"
           placeholder="m@example.com"
@@ -60,13 +60,13 @@ export const Login = () => {
       </div>
       <div class="space-y-2">
         <label
-          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
           for="password"
         >
           Password
         </label>
         <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
           type="password"
           id="password"
           required=""
