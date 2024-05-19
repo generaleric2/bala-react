@@ -112,7 +112,7 @@ export const Cart = () => {
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                  <div className="mt-5 sm:mt-0">
                     <h2 className="text-lg font-bold text-gray-900">{item.productname}</h2>
-                    <p className="mt-1 text-xs text-gray-700">{item.size}</p>
+                    <p className="mt-1 text-5 text-gray-700 font-bold">{item.size}</p>
                  </div>
                  <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div className="flex items-center border-gray-100">
@@ -121,7 +121,7 @@ export const Cart = () => {
                     <span className="cursor-pointer rounded-r bg-gray-300 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50 font-bold" onClick={() => handleQuantity(item.productId, item.quantity + 1)}> + </span>
                     </div>
                     <div className="flex items-center space-x-4">
-                      <p className="text-sm">UGX: {item.price * item.quantity}</p>
+                      <p className="text-sm font-bold">UGX: {item.price * item.quantity}</p>
                       <button onClick={() => handleRemoveItem(item.productId)} className="h-5 w-5 sm:h-8 sm:w-8 cursor-pointer duration-150 hover:text-red-500 font-bold bg-gray-200 hover:bg-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -150,7 +150,7 @@ export const Cart = () => {
                 <p className="text-sm text-gray-700">including VAT</p>
               </div>
             </div>
-            <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600" onClick={() => handleCheckout(cart)}>ORDER NOW</button>
+            <button className="mt-6 w-full rounded-md bg-black py-1.5 font-medium text-white hover:bg-blue-600" onClick={() => handleCheckout(cart)}>ORDER NOW</button>
           </div>
         </div>
         </>
@@ -158,7 +158,7 @@ export const Cart = () => {
       <div className="flex items-center justify-center h-screen">
       <Link
           to="/login"
-          className="block px-4 py-2 text-white bg-blue-900 rounded hover:bg-blue-700 focus:outline-none"
+          className="block px-4 py-2 text-white bg-black rounded hover:bg-blue-700 focus:outline-none"
       >
           Login
       </Link>

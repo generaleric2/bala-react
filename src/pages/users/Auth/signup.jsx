@@ -34,61 +34,101 @@ export const Signup=()=> {
 
 
     return (
-      <div className="flex items-center justify-center h-screen" style={{ backgroundColor: '#fff' }}>
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <img src="/signup.gif" alt="Signup GIF" className='w-20 mx-auto mb-5' />
-        <h2 className='text-center text-2xl font-semibold text-gray-600'>Signup</h2>
-        <form className="mt-8 space-y-6" onSubmit={handleSignup}>
-        <div className="relative">
-            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
-              id="username" 
-              required 
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black'>Names</label>
-          </div>
-          <div className="relative">
-            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
-              id="email" 
-              required 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="email" className='absolute left-0 -top-3.5 text-sm text-black'>Email</label>
-          </div>
-          <div className="relative">
-            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
-              id="phonenumber" 
-              required 
-              value={phonenumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <label htmlFor="phonenumber" className='absolute left-0 -top-3.5 text-sm text-black'>Phone Number</label>
-          </div>
-          <div className="relative">
-            <input type="text" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
-              id="address" 
-              required 
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <label htmlFor="address" className='absolute left-0 -top-3.5 text-sm text-black'>Address</label>
-          </div>
-          <div className="relative">
-            <input type="password" className='w-full p-2 border-b-2 border-gray-300 outline-none focus:border-indigo-500 bg-white text-black' 
-              id="password" 
-              required 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label htmlFor="password" className='absolute left-0 -top-3.5 text-sm text-black'>Password</label>
-          </div>
-          <button type="submit" className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">
-            Signup
-          </button>
-        </form>
+      <div class="mx-auto max-w-md space-y-6 py-12 ml-10">
+      <div class="space-y-2 text-center">
+      <img src="/signup.gif" alt="Signup GIF" className='w-20 mx-auto mb-5' />
+        <h1 class="text-3xl font-bold">Sign Up</h1>
+        <p class="text-gray-500 dark:text-gray-400">Create your account to get started.</p>
       </div>
+      <form class="space-y-4" onSubmit={handleSignup}>
+        <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="name"
+          >
+            Name
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="name"
+            placeholder="John Doe"
+            required=""
+      value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="email"
+          >
+            Email
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            type="email"
+            id="email"
+            placeholder="m@example.com"
+            required=""
+      value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+      <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="phonenumber"
+          >
+            Phone Number
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="phonenumber"
+            placeholder="O712345678"
+            required=""
+            value={phonenumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+        </div>
+      <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="address"
+          >
+            Address
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="address"
+            placeholder="Najjera"
+            required=""
+      value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            type="password"
+            id="password"
+            required=""
+      value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-black text-white"
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
     </div>
  );
 };

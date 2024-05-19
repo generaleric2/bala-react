@@ -67,6 +67,7 @@ export const Nav = () => {
 </button>
           </div>
           <div className={`md:flex items-center ${isOpen ? 'block' : 'hidden'}`}>
+            {/* <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none dark:placeholder-gray-200 dark:bg-gray-500 dark:border-gray-50" type="search" name="search" placeholder="Search"/> */}
             <ul className="md:flex md:space-x-4">
               <li>
                 <Link
