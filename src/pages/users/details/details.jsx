@@ -87,7 +87,7 @@ export const Details = ({ route }) => {
                       alt={`${product.productname} Slide ${index + 1}`}
                       width="600"
                       height="600"
-                      className="aspect-square object-cover"
+                      className="aspect-square object-fit"
                     />
                   </div>
                 ))}
