@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import axios from 'axios';
@@ -6,13 +6,32 @@ import { updateQuantity, removeFromCart, clearCart } from '../reducers/cartSlice
 import {Nav} from '../../../components/Nav'
 import './cart.css';
 import emailjs from "@emailjs/browser";
+import AuthContext from '../Auth/authSlice';
 
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  console.log("Cart Items:", cart.items);
   const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [customerDetails, setCustomerDetails] = useState(null);
+  const { authState } = useContext(AuthContext);
+  const [userId, setUserId] = useState(null);
+
+
+  useEffect(() => {
+    if (authState.uid) {
+      axios.get(`https://bala-canvas.onrender.com/customers/${authState.uid}`)
+        .then(response => setCustomerDetails(response.data))
+        .catch(error => console.error('Failed to fetch customer:', error));
+    }
+ }, [authState.uid]);
+
+ useEffect(() => {
+  setIsLoggedIn(!!authState.uid);
+  setUserId(authState.uid);
+}, [authState.uid]);
+
+
 
   const handleQuantity = (productId, newQuantity) => {
     dispatch(updateQuantity({ productId, quantity: newQuantity }));
@@ -27,6 +46,9 @@ export const Cart = () => {
     const storedUid = localStorage.getItem('uid');
     if (storedIdToken && storedUid) {
       setIsLoggedIn(true);
+
+      const customerInfo = JSON.parse(localStorage.getItem(storedUid)) || {};
+      setCustomerDetails(customerInfo);
     }
  }, []);
 
@@ -57,7 +79,7 @@ export const Cart = () => {
      }
  
      // Fetch the user's email
-     const response = await axios.get(`https://bala-canvas.onrender.com/${uid}/email`);
+     const response = await axios.get(`https://bala-canvas.onrender.com/customers/${uid}/email`);
      const userEmail = response.data.email;
  
      // Send the checkout request
@@ -153,6 +175,20 @@ export const Cart = () => {
             <button className="mt-6 w-full rounded-md bg-black py-1.5 font-medium text-white hover:bg-blue-600" onClick={() => handleCheckout(cart)}>ORDER NOW</button>
           </div>
         </div>
+        <div className='container'>
+            <div className="px-6 py-4 bg-gray-900 text-white mt-10 flex ml-2 mr-2">
+              <h1 className="text-lg font-bold flex">CUSTOMER ADDRESS</h1>
+              <Link to="/edit" state={{ customerDetails }} className="flex flex-row text-blue-500 hover:text-blue-700 ml-12">
+                Change
+              </Link>
+            </div>
+            <div className='border ml-2 mr-2'>
+              <p className='font-bold'>Name: {customerDetails.username}</p>
+              <p className='font-bold'>Email: {customerDetails.email}</p>
+              <p className='font-bold'>Phone Number: {customerDetails.phonenumber}</p>
+              <p className='font-bold'>Address: {customerDetails.address}</p>
+            </div>
+          </div>
         </>
       ) : (
       <div className="flex items-center justify-center h-screen">

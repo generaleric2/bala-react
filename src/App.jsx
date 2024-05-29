@@ -11,11 +11,13 @@ import { Men } from './pages/users/categories/men'
 import { Women } from './pages/users/categories/women'
 import { Children } from './pages/users/categories/children'
 import { Orders } from './pages/users/orders/orders'
-import { Test } from './pages/test'
+import { Edit } from './pages/users/Edit Det/edit'
+import { AuthProvider } from './pages/users/Auth/authSlice';
 
 function App() {
   return (
     <Provider store={store}>
+      <AuthProvider>
       <Router>
         <Routes>
           <Route path="/" element={<Shop />} />
@@ -27,9 +29,10 @@ function App() {
           <Route path="/women" element={<Women />} />
           <Route path="/children" element={<Children />} />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/edit" element={<Edit />} />
         </Routes>
       </Router>
+      </AuthProvider>
     </Provider>
   );
 }

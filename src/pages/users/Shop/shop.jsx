@@ -48,8 +48,8 @@ export const Shop = () => {
                 scale: 1.2,
               }}
             >
-              <div className="h-80 w-72 rounded-t-xl overflow-hidden object-fit"> {/* Updated class */}
-                <img src={product.productimage && Array.isArray(product.productimage) && product.productimage.length > 0? `https://bala-canvas.onrender.com/${product.productimage[0]}`: ''} alt={product.productname} onError={(error) => {console.error('Error loading image:', error)}} /> {/* Updated style */}
+              <div className="h-80 w-auto rounded-t-xl overflow-hidden">
+                <img src={product.productimage && Array.isArray(product.productimage) && product.productimage.length > 0? `https://bala-canvas.onrender.com/${product.productimage[0]}`: ''} alt={product.productname} onError={(error) => {console.error('Error loading image:', error)}} className='object-fit' /> {/* Updated style */}
               </div>
               <div className="px-4 py-3 w-72">
                 <p className="text-lg font-bold text-black truncate block capitalize">{product.productname}</p>

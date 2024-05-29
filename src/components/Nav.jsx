@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { ShoppingCart } from "phosphor-react";
+import { ShoppingCart, Question } from "phosphor-react";
 import '../components/navbar.css';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';

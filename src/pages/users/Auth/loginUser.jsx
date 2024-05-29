@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './login.css';
+import AuthContext from './authSlice';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { isLoading, error } = useSelector((state) => state.auth);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ export const Login = () => {
       console.log('Login successful! ID Token:', idToken, 'UID:', uid);
       navigate('/')
       setIsLoggedIn(true);
+      setAuth(idToken, uid);
       localStorage.setItem('idToken', idToken);
       localStorage.setItem('uid', uid);
     } catch (error) {
