@@ -176,17 +176,17 @@ export const Cart = () => {
           </div>
         </div>
         <div className='container'>
-            <div className="px-6 py-4 bg-gray-900 text-white mt-10 flex ml-2 mr-2">
+            <div className="px-6 py-4 bg-black text-white mt-10 flex ml-2 mr-2">
               <h1 className="text-lg font-bold flex">CUSTOMER ADDRESS</h1>
               <Link to="/edit" state={{ customerDetails }} className="flex flex-row text-blue-500 hover:text-blue-700 ml-12">
                 Change
               </Link>
             </div>
             <div className='border ml-2 mr-2'>
-              <p className='font-bold'>Name: {customerDetails.username}</p>
-              <p className='font-bold'>Email: {customerDetails.email}</p>
-              <p className='font-bold'>Phone Number: {customerDetails.phonenumber}</p>
-              <p className='font-bold'>Address: {customerDetails.address}</p>
+              <p className='font-bold dark:text-black'>Name: {customerDetails.username}</p>
+              <p className='font-bold dark:text-black'>Email: {customerDetails.email}</p>
+              <p className='font-bold dark:text-black'>Phone Number: {customerDetails.phonenumber}</p>
+              <p className='font-bold dark:text-black'>Address: {customerDetails.address}</p>
             </div>
           </div>
         </>
