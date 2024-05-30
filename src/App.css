@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App.css */
+.input-dark-mode {
+  color: #000; /* Black text color */
+}
+
+.dark.input-dark-mode {
+  color: #000; /* Ensures black text in dark mode */
+}
+
