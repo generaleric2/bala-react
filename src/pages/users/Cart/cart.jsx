@@ -122,7 +122,7 @@ export const Cart = () => {
  
 
   return (
-      <div className="h-screen pt-20" style={{ backgroundColor: '#fff' }}>
+      <div className=" pt-20" style={{ backgroundColor: '#fff' }}>
           <Nav />
           {isLoggedIn ? (
              <>

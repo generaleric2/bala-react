@@ -102,7 +102,7 @@ export const Edit = () => {
           <button type="submit" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-black text-white">
             Update
           </button>
-          <p className="text-center mt-4">
+          <p className="text-center mt-4 dark:text-black">
             Having Issues with Update? <a href="mailto:orders@basis-ec.shop" className="text-blue-500 hover:underline">Contact Us</a>
           </p>
         </form>
