@@ -106,7 +106,7 @@ export const Cart = () => {
  
        // Send email
        emailjs.init("LPfIrBdBcOXiGfeHh");
-       emailjs.send('service_qp8rhsa', 'template_6sxi4jr', templateParams)
+       emailjs.send('service_cn2iji3', 'template_6sxi4jr', templateParams)
          .then((result) => {
            console.log('Email sent successfully!', result.text);
          }, (error) => {
