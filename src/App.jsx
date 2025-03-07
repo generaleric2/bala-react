@@ -12,7 +12,9 @@ import { Women } from './pages/users/categories/women'
 import { Children } from './pages/users/categories/children'
 import { Orders } from './pages/users/orders/orders'
 import { Edit } from './pages/users/Edit Det/edit'
+import { Settings } from './pages/users/settings/settings'
 import { AuthProvider } from './pages/users/Auth/authSlice';
+import { Search } from './components/search'
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/children" element={<Children />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/edit" element={<Edit />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Router>
       </AuthProvider>

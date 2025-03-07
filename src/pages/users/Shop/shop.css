@@ -1,0 +1,7 @@
+.tab-transition {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .product-grid {
+    transition: opacity 0.3s ease-in-out;
+  }

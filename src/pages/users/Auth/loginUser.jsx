@@ -17,13 +17,12 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://bala-canvas.onrender.com/customerlogin', {
+      const response = await axios.post('http://localhost:3007/customerlogin', {
         email,
         password,
       });
 
       const { idToken, uid } = response.data;
-      console.log('Login successful! ID Token:', idToken, 'UID:', uid);
       navigate('/')
       setIsLoggedIn(true);
       setAuth(idToken, uid);

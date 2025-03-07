@@ -19,7 +19,7 @@ export const Details = ({ route }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://bala-canvas.onrender.com/shop/${productId}`);
+        const response = await axios.get(`http://localhost:3007/shop/${productId}`);
         setProduct(response.data);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -83,7 +83,7 @@ export const Details = ({ route }) => {
                 {product.productimage.slice(currentSlide, currentSlide + 3).map((image, index) => (
                   <div key={index} aria-roledescription="slide" className="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
                     <img
-                      src={`https://bala-canvas.onrender.com/${image}`}
+                      src={`http://localhost:3007/${image}`}
                       alt={`${product.productname} Slide ${index + 1}`}
                       width="600"
                       height="600"
