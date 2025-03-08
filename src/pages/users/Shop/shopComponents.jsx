@@ -15,7 +15,7 @@ export const Hero = () => {
     <section className="bg-gray-50 w-screen">
       <div className="grid w-full px-4 py-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div className="mr-auto place-self-center lg:col-span-7">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 sm:mt-20">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 mt-8 md:mt-0">
             Discover Our Latest Collection
           </h1>
           <p className="text-lg text-gray-600 mb-6">
