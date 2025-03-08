@@ -31,7 +31,7 @@ export const Edit = () => {
       }
   
       const response = await axios.put(
-        'http://localhost:3007/updatecustomer',
+        'https://bala-canvas.onrender.com/updatecustomer',
         {
           ...customerDetails,
            uid: storedUid, 
