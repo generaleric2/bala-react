@@ -39,7 +39,7 @@ export const Footer = () => {
 
           {/* Company Links */}
           <div className="lg:col-span-1">
-            <h3 className="text-white text-lg font-semibold mb-6">Shopping</h3>
+            <h3 className="text-white text-lg font-semibold mb-6">Start Shopping</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <a href="/signup" className="hover:text-blue-400 transition-colors duration-300">Sign up</a>
