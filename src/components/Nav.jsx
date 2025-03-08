@@ -34,7 +34,7 @@ export const Nav = () => {
   const fetchProducts = async () => {
     try {
       const url =
-        'http://localhost:3007/shop';
+        'https://bala-canvas.onrender.com/shop';
       const response = await axios.get(url);
       setProducts(response.data);
     } catch (error) {

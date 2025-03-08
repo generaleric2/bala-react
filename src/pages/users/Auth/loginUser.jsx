@@ -17,7 +17,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3007/customerlogin', {
+      const response = await axios.post('https://bala-canvas.onrender.com/customerlogin', {
         email,
         password,
       });
@@ -36,8 +36,30 @@ export const Login = () => {
   };
 
   return (
-    <div class="flex h-screen w-full items-center justify-center bg-white dark:bg-white">
-  <div class="w-full max-w-md space-y-4 rounded-lg bg-white p-6 shadow-lg dark:bg-white">
+    <div style={{ 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      width: '100%',
+      padding: '16px',
+      boxSizing: 'border-box',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0
+    }}>
+      <div style={{ 
+        width: '100%',
+        maxWidth: '400px',
+        padding: '1.5rem',
+        borderRadius: '8px',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        backgroundColor: 'white',
+        margin: '0 auto'
+      }}>
     <div class="space-y-2 text-center">
       <img src="/hwe.gif" alt="Login GIF" className='w-20 mx-auto mb-5' />
       <h1 class="text-3xl font-bold text-black dark:text-black">Welcome Back</h1>
@@ -52,7 +74,7 @@ export const Login = () => {
           Email
         </label>
         <input
-          class="flex dark:text-black dark:bg-white input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 "
+          className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
           type="email"
           id="email"
           placeholder="m@example.com"
@@ -68,7 +90,7 @@ export const Login = () => {
           Password
         </label>
         <input
-          class="flex dark:text-black dark:bg-white input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 "
+          className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
           type="password"
           id="password"
           required=""
@@ -78,7 +100,7 @@ export const Login = () => {
       <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-black text-white">
         Sign in
       </button>
-      <p className="text-center mt-4">
+      <p className="text-center mt-4 text-blue-500">
         Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign up here</a>
       </p>
     </form>

@@ -34,7 +34,30 @@ export const Signup=()=> {
 
 
     return (
-      <div class="mx-auto max-w-md space-y-6 py-12 ml-10">
+      <div style={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        width: '100%',
+        padding: '16px',
+        boxSizing: 'border-box',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+      }}>
+        <div style={{ 
+          width: '100%',
+          maxWidth: '400px',
+          padding: '1.5rem',
+          borderRadius: '8px',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          backgroundColor: 'white',
+          margin: '0 auto'
+        }}>
       <div class="space-y-2 text-center">
       <img src="/signup.gif" alt="Signup GIF" className='w-20 mx-auto mb-5' />
         <h1 class="text-3xl font-bold text-black dark:text-black">Sign Up</h1>
@@ -49,7 +72,7 @@ export const Signup=()=> {
             Name
           </label>
           <input
-            class="flex dark:text-black input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
             id="name"
             placeholder="John Doe"
             required=""
@@ -65,7 +88,7 @@ export const Signup=()=> {
             Email
           </label>
           <input
-            class="flex dark:text-black input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
             type="email"
             id="email"
             placeholder="m@example.com"
@@ -76,13 +99,13 @@ export const Signup=()=> {
         </div>
       <div class="space-y-2">
           <label
-            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
             for="phonenumber"
           >
             Phone Number
           </label>
           <input
-            class="flex dark:text-black input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
             id="phonenumber"
             placeholder="O712345678"
             required=""
@@ -98,7 +121,7 @@ export const Signup=()=> {
             Address
           </label>
           <input
-            class="flex dark:text-black input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
             id="address"
             placeholder="Najjera"
             required=""
@@ -114,7 +137,7 @@ export const Signup=()=> {
             Password
           </label>
           <input
-            class="flex dark:text-black input-dark-mode h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white"
+            className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
             type="password"
             id="password"
             required=""
@@ -129,6 +152,7 @@ export const Signup=()=> {
           Sign Up
         </button>
       </form>
+    </div>
     </div>
  );
 };

@@ -20,7 +20,7 @@ export const Cart = () => {
 
   useEffect(() => {
     if (authState.uid) {
-      axios.get(`http://localhost:3007/customers/${authState.uid}`)
+      axios.get(`https://bala-canvas.onrender.com/customers/${authState.uid}`)
         .then(response => setCustomerDetails(response.data))
         .catch(error => console.error('Failed to fetch customer:', error));
     }
@@ -68,7 +68,7 @@ useEffect(() => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:3007/customer/${uid}`, {
+      const response = await axios.get(`https://bala-canvas.onrender.com/customer/${uid}`, {
         headers: { 
           Authorization: `Bearer ${token}`
         }
@@ -129,7 +129,7 @@ const handleCheckout = async () => {
 
   try {
     const checkoutResponse = await axios.post(
-      'http://localhost:3007/checkout', 
+      'https://bala-canvas.onrender.com/checkout', 
       checkoutPayload,
       {
         headers: { 
@@ -181,7 +181,7 @@ const handleCheckout = async () => {
       statusText: error.response?.statusText,
       responseData: error.response?.data,
       requestPayload: checkoutPayload,
-      endpoint: 'http://localhost:3007/checkout'
+      endpoint: 'https://bala-canvas.onrender.com/checkout'
     });
     
     setError(
@@ -242,7 +242,7 @@ const handleCheckout = async () => {
               <div key={item.id} className="bg-white rounded-lg shadow-md p-6 mb-4">
                 <div className="flex flex-col sm:flex-row items-center">
                   <img
-                    src={`http://localhost:3007/${item.productimage[0]}`}
+                    src={`https://bala-canvas.onrender.com/${item.productimage[0]}`}
                     alt={item.productname}
                     className="w-32 h-32 object-cover rounded-lg mb-4 sm:mb-0"
                   />

@@ -25,7 +25,7 @@ export const Settings = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:3007/customers/${uid}`, {
+        const response = await axios.get(`https://bala-canvas.onrender.com/customers/${uid}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUserData(response.data);
@@ -44,7 +44,7 @@ export const Settings = () => {
 
     try {
       await axios.put(
-        `http://localhost:3007/customer/${uid}`,
+        `https://bala-canvas.onrender.com/customer/${uid}`,
         {
           phone: userData.phone,
           address: userData.address
@@ -61,7 +61,27 @@ export const Settings = () => {
   };
 
 return (
-    <div className="min-h-screen p-10 bg-gray-100">
+  <div style={{ 
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '100vh',
+    width: '100%',
+    padding: '16px',
+    boxSizing: 'border-box',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  }}>
+    <div style={{ 
+      padding: '1.5rem',
+      borderRadius: '8px',
+      backgroundColor: 'white',
+      margin: '0 auto'
+    }}>
       <Nav />
       <div className="max-w-6xl mx-auto pt-24 px-4 sm:px-6 lg:px-8 flex justify-center items-start">
         <div className="bg-white rounded-lg shadow-lg p-8 w-full">
@@ -84,7 +104,7 @@ return (
                   type="text"
                   value={userData.username}
                   disabled
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
+                  className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
                 />
               </div>
 
@@ -95,7 +115,7 @@ return (
                   type="email"
                   value={userData.email}
                   disabled
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
+                  className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
                 />
               </div>
 
@@ -107,7 +127,7 @@ return (
                   value={userData.phonenumber}
                   onChange={(e) => setUserData({ ...userData, phone: e.target.value })}
                   disabled={!isEditing}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                  className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
                 />
               </div>
 
@@ -118,7 +138,7 @@ return (
                   value={userData.address}
                   onChange={(e) => setUserData({ ...userData, address: e.target.value })}
                   disabled={!isEditing}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none"
+                  className="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 dark:bg-white dark:text-gray-800 dark:border-gray-400"
                 />
               </div>
             </div>
@@ -153,6 +173,7 @@ return (
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };
