@@ -1,23 +1,22 @@
 import { ChevronRight } from 'lucide-react';
-import logo from '../../../assets/logobala.png';
+import logo from '../../../assets/balafinal.png';
 
 export const Footer = () => {
 
   return (
-    <footer className="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-gray-400 py-16 px-4 md:px-8 lg:px-12 mt-5">
+    <footer className="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-gray-400 py-16 px-4 md:px-8 lg:px-12 mt-5 mb-0">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Logo and Description Section */}
           <div className="lg:col-span-1 space-y-6">
             <a href='/'>
             <img 
               src={logo} 
-              alt="Logo" 
+              alt="Logo"
               className="h-16 w-auto transform transition-transform duration-300 hover:scale-105" 
               style={{ objectFit: 'contain' }} 
             />
             </a> 
-            <p className="text-sm leading-relaxed text-gray-300">shoes for generations</p>
+            <p className="text-sm leading-relaxed text-gray-300">Shoes for generations</p>
             <div className="flex gap-6">
               {['Facebook', 'Twitter', 'LinkedIn', 'Github'].map((social) => (
                 <a 

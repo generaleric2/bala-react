@@ -15,6 +15,9 @@ import { Edit } from './pages/users/Edit Det/edit'
 import { Settings } from './pages/users/settings/settings'
 import { AuthProvider } from './pages/users/Auth/authSlice';
 import { Search } from './components/search'
+import { PrivacyPolicy } from './pages/users/Auth/privacy';
+import { Shop1 } from './pages/users/Shop/shop1';
+import { NewArrivals } from './pages/users/Shop/new';
 
 function App() {
   return (
@@ -23,6 +26,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Shop />} />
+          <Route path="/shop1" element={<Shop1 />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:productId" element={<Details />} />
           <Route path="/login" element={<Login />} />
@@ -34,6 +38,8 @@ function App() {
           <Route path="/edit" element={<Edit />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/new" element={<NewArrivals />} />
         </Routes>
       </Router>
       </AuthProvider>

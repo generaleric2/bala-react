@@ -1,5 +1,6 @@
 import Lottie from "react-lottie";
 import shoppingAnimation from "../../../../public/Animation - 1741345723353.json";
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   const defaultOptions = {
@@ -21,9 +22,11 @@ export const Hero = () => {
           <p className="text-lg text-gray-600 mb-6">
             Shop the newest trends and styles for your little ones
           </p>
+          <Link to="/shop1">
           <button className="bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700">
             Shop Now
           </button>
+        </Link>
         </div>
         <div className="lg:mt-0 lg:col-span-5 lg:flex justify-end">
           <Lottie options={defaultOptions} height={400} width={400} />

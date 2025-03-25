@@ -69,7 +69,7 @@ export const Nav = () => {
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img src="/logo.jpg" alt="shop logo" className="h-10 w-20 object-contain" />
+              <img src="/balafinal.png" alt="shop logo" className="h-14 w-auto" />
             </Link>
           </div>
 

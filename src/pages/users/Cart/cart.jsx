@@ -196,10 +196,10 @@ const handleCheckout = async () => {
 
   if (cart.items.length === 0) {
     return (
-<div className="min-h-screen bg-gray-50 flex items-center justify-center"> {/* Changed this line */}
-  <Nav />
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  {/* Removed pt-24 */}
-    <div className="text-center py-16">
+      <div className="min-h-screen bg-white w-screen overflow-x-hidden">
+        <Nav />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+          <div className="text-center py-16">
             <ShoppingBag size={64} className="mx-auto text-gray-400 mb-4" weight="thin" />
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
             <p className="text-gray-500 mb-8">Looks like you haven't added anything to your cart yet</p>
@@ -216,7 +216,7 @@ const handleCheckout = async () => {
     );
   }
   return (
-    <div className=" p-40 min-h-screen bg-gray-50 flex flex-col items-center justify-start py-4 sm:py-6 md:py-8 lg:py-10 overflow-x-hidden w-full">
+    <div className="min-h-screen bg-white w-screen overflow-x-hidden">
       <Nav />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
         <div className="flex justify-between items-center mb-8">
@@ -244,7 +244,7 @@ const handleCheckout = async () => {
                   <img
                     src={`https://bala-canvas.onrender.com/${item.productimage[0]}`}
                     alt={item.productname}
-                    className="w-32 h-32 object-cover rounded-lg mb-4 sm:mb-0"
+                    className="w-24 h-24 object-cover rounded-lg mb-4 sm:mb-0" // Adjusted size back
                   />
                   <div className="flex-1 sm:ml-6">
                     <div className="flex justify-between items-start">
@@ -280,22 +280,34 @@ const handleCheckout = async () => {
             ))}
           </div>
 
-          <div className="lg:w-2/5">
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
+          <div className="lg:w-1/3">
+            <div className="bg-white rounded-lg shadow-md p-6 sticky top-24 font-bold text-gray-900">
               <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
               <div className="space-y-6">
-                <div className="flex justify-between">
-                  <span>Subtotal</span>
-                  <span>UGX {calculateTotal().toLocaleString()}</span>
+                <div className="flex justify-between font-bold">
+                  <span className='text-gray-600 '>Subtotal</span>
+                  <span className='text-gray-600'>UGX {calculateTotal().toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between text-gray-600">
+                <div className="flex justify-between text-red-600 font-bold">
                 <span>Shipping Fee</span>
-                <span>UGX {SHIPPING_FEE.toLocaleString()}</span>
+                <span>UGX {SHIPPING_FEE.toLocaleString()}*</span>
               </div>
               <div className="pt-4 border-t border-gray-200">
                     <div className="flex justify-between text-lg font-bold">
-                      <span>Total</span>
-                      <span>UGX {cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0) + 10000}</span>
+                      <span className='text-gray-600'>Total</span>
+                      <span className='text-gray-600'>UGX {cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0) + 10000}</span>
+                    </div>
+                  </div>
+                  <div className="mt-6 space-y-4 text-sm text-gray-600 font-normal">
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h3 className="font-semibold text-blue-800 mb-2">Delivery Information:</h3>
+                      <ul className="list-disc pl-5 space-y-2">
+                        <li>Delivery within 24 hours for Kampala residents</li>
+                        <li>Payment method: Cash on Delivery only</li>
+                        <li>Shipping fee (UGX 10,000) applies to Kampala area only</li>
+                        <li>For deliveries outside Kampala, please contact us for shipping rates</li>
+                        <li>Free pickup available at our store location</li>
+                      </ul>
                     </div>
                   </div>
                   <div className="pt-6">
